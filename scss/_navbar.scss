@@ -13,6 +13,7 @@
   }
   .navbar-brand {
     color: $primary;
+    padding-left: 13px;
     @include script-font;
     &.active,
     &:active,
