@@ -3,3 +3,24 @@
   margin: 15px 0;
   text-transform: none;
 }
+
+@media(max-width:768px) {
+  section {
+    h2.section-heading {
+      font-size: 20px;
+    }
+    h3.section-subheading {
+      margin-bottom: 10px;
+    }
+    h4.service-heading {
+      font-size: 17px;
+    }
+  }
+}
+
+@media(max-width:365px) {
+  section#philosophy {
+    margin-top: 100px;
+  }
+}
+
