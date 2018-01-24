@@ -5,7 +5,7 @@ body {
 }
 
 p {
-  line-height: 1.75;
+  line-height: 1;
 }
 
 a {
@@ -48,11 +48,11 @@ section {
     @include serif-font;
   }
 }
-@media(max-width:768px) {
-  header.masthead  {
-    display: none;
-  }
-}
+// @media(max-width:768px) {
+//   header.masthead  {
+//     display: none;
+//   }
+// }
 
 // Button Styles
 .btn {

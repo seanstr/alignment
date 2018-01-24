@@ -1,4 +1,9 @@
 <?php
+/* if started from commandline, wrap parameters to $_POST and $_GET */if (!isset($_SERVER["HTTP_HOST"])) {
+  parse_str($argv[1], $_GET);
+  parse_str($argv[1], $_POST);
+}
+
 // Check for empty fields
 if(empty($_POST['name'])      ||
    empty($_POST['email'])     ||
@@ -16,11 +21,17 @@ $phone = strip_tags(htmlspecialchars($_POST['phone']));
 $message = strip_tags(htmlspecialchars($_POST['message']));
    
 // Create the email and send the message
-$to = 'amzconsu@amzconsultants.com'; // Add your email address inbetween the '' replacing yourname@yourdomain.com - This is where the form will send a message to.
+$to = 'cmt.herbs@gmail.com'; // Add your email address inbetween the '' replacing yourname@yourdomain.com - This is where the form will send a message to.
 $email_subject = "Website Contact Form:  $name";
 $email_body = "You have received a new message from your website contact form.\n\n"."Here are the details:\n\nName: $name\n\nEmail: $email_address\n\nPhone: $phone\n\nMessage:\n$message";
-$headers = "From: noreply@alignment-therapeutic-massage.com\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
+$headers = "From: alignment@alignment-therapeutic-massage.com\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
 $headers .= "Reply-To: $email_address";   
+
+echo "To: " . $name;
+echo "Subject: " . $email_subject;
+echo "Body: " . $email_body;
+echo "headers: " . $headers;
+
 mail($to,$email_subject,$email_body,$headers);
 return true;         
 ?>
